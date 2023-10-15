@@ -13,8 +13,9 @@ map.src = './assets/world-map.png'
 //player creation
 const player = new Image()
 player.src = './assets/player-down.png'
-  
-map.onload = () => {
+
+function animate() {
+  window.requestAnimationFrame(animate)
 
   //map rendering
   context.drawImage(map, -6500, -1850)
@@ -30,5 +31,25 @@ map.onload = () => {
     canvas.height / 2 - player.height / 2, //position y
     player.width / 4, //actual width of the image being rendered
     player.height //actual height of the image being rendered
-    )
+  )
 }
+
+// player direction change
+window.addEventListener('keydown', (event) => {
+  switch(event.key) {
+    case 'ArrowUp':
+      player.src = './assets/player-up.png'
+      break
+    case 'ArrowRight':
+      player.src = './assets/player-right.png'
+      break
+    case 'ArrowDown':
+      player.src = './assets/player-down.png'
+      break
+    case 'ArrowLeft':
+      player.src = './assets/player-left.png'
+      break
+  }
+})
+
+animate()
