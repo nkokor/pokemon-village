@@ -71,7 +71,7 @@ const playerImageRight = new Image()
 playerImageRight.src = './assets/player-right.png'
 const player = new Sprite({
   position: {
-    x: canvas.width / 2 - playerImageDown.width / 4,
+    x: canvas.width / 2 - playerImageDown.width / 6,
     y: canvas.height / 2 - playerImageDown.height / 2
   },
   image: playerImageDown,

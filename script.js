@@ -1,3 +1,5 @@
+const playerSpeed = 3
+
 const worldObjects = [map, ...collisionBlocks, foreground]
 
 const keys = {
@@ -15,88 +17,18 @@ const keys = {
   }
 }
 
-function areInCollision(object1, object2) {
-  return (
-    object1.position.x + object1.width >= object2.position.x
-    && object1.position.x <= object2.position.x + object2.width
-    && object1.position.y <= object2.position.y + object2.height
-    && object1.position.y + object1.height >= object2.position.y
-  )
-}
-
 let lastPressedKey = ''
 
 function movePlayer(lastPressedKey) {
-  let moving = true
-  //player movement is implemented by changing the map position
+  //player movement is implemented by moving the world objects
   if(keys.up.pressed && lastPressedKey === 'up') {
-    player.moving = true
-    collisionBlocks.forEach(block => {
-      if(areInCollision(player, {...block, position: {
-        x: block.position.x,
-        y: block.position.y + 3
-      }})) {
-        console.log('collision')
-        moving = false
-        player.moving = false
-      }
-    })
-    if(moving) {
-      worldObjects.forEach(object => {
-        object.position.y += 3
-      })
-    }
+    moveUp()
   } else if(keys.right.pressed  && lastPressedKey === 'right') {
-    player.moving = true
-    collisionBlocks.forEach(block => {
-      if(areInCollision(player, {...block, position: {
-        x: block.position.x - 3,
-        y: block.position.y
-      }})) {
-        console.log('collision')
-        moving = false
-        player.moving = false
-      }
-    })
-    if(moving) {
-      worldObjects.forEach(object => {
-        object.position.x -= 3
-      })
-    }
+    moveRight()
   } else if(keys.down.pressed  && lastPressedKey === 'down') {
-    player.moving = true
-    collisionBlocks.forEach(block => {
-      if(areInCollision(player, {...block, position: {
-        x: block.position.x,
-        y: block.position.y - 3
-      }})) {
-        console.log('collision')
-        moving = false
-        player.moving = false
-      }
-    })
-    if(moving) {
-      worldObjects.forEach(object => {
-        object.position.y -= 3
-      })
-    }
+    moveDown()
   } else if(keys.left.pressed  && lastPressedKey === 'left') {
-    player.moving = true
-    collisionBlocks.forEach(block => {
-      if(areInCollision(player, {...block, position: {
-        x: block.position.x + 3,
-        y: block.position.y
-      }})) {
-        console.log('collision')
-        moving = false
-        player.moving = false
-      }
-    })
-    if(moving) {
-      worldObjects.forEach(object => {
-        object.position.x += 3
-      })
-    }
+    moveLeft()
   }
 }
 
@@ -112,7 +44,7 @@ function animate() {
   movePlayer(lastPressedKey)
 }
 
-// player direction change
+//player direction change
 window.addEventListener('keydown', (event) => {
   switch(event.key) {
     case 'ArrowUp':
