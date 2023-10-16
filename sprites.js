@@ -82,7 +82,7 @@ const player = new Sprite({
 
 //creating foreground
 const foregroundMapImage = new Image()
-foregroundMapImage.scr = './assets/foreground-map.png'
+foregroundMapImage.src = './assets/foreground-map.png'
 const foreground = new Sprite({
   position: {
     x: offset.x,

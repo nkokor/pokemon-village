@@ -30,6 +30,7 @@ function movePlayer(lastPressedKey) {
   let moving = true
   //player movement is implemented by changing the map position
   if(keys.up.pressed && lastPressedKey === 'up') {
+    player.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x,
@@ -37,6 +38,7 @@ function movePlayer(lastPressedKey) {
       }})) {
         console.log('collision')
         moving = false
+        player.moving = false
       }
     })
     if(moving) {
@@ -45,6 +47,7 @@ function movePlayer(lastPressedKey) {
       })
     }
   } else if(keys.right.pressed  && lastPressedKey === 'right') {
+    player.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x - 3,
@@ -52,6 +55,7 @@ function movePlayer(lastPressedKey) {
       }})) {
         console.log('collision')
         moving = false
+        player.moving = false
       }
     })
     if(moving) {
@@ -60,6 +64,7 @@ function movePlayer(lastPressedKey) {
       })
     }
   } else if(keys.down.pressed  && lastPressedKey === 'down') {
+    player.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x,
@@ -67,6 +72,7 @@ function movePlayer(lastPressedKey) {
       }})) {
         console.log('collision')
         moving = false
+        player.moving = false
       }
     })
     if(moving) {
@@ -75,6 +81,7 @@ function movePlayer(lastPressedKey) {
       })
     }
   } else if(keys.left.pressed  && lastPressedKey === 'left') {
+    player.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x + 3,
@@ -82,6 +89,7 @@ function movePlayer(lastPressedKey) {
       }})) {
         console.log('collision')
         moving = false
+        player.moving = false
       }
     })
     if(moving) {
@@ -134,15 +142,19 @@ window.addEventListener('keyup', (event) => {
   switch(event.key) {
     case 'ArrowUp':
       keys.up.pressed = false
+      player.moving = false
       break
     case 'ArrowRight':
       keys.right.pressed = false
+      player.moving = false
       break
     case 'ArrowDown':
       keys.down.pressed = false
+      player.moving = false
       break
     case 'ArrowLeft':
       keys.left.pressed = false
+      player.moving = false
       break
   }
 })
