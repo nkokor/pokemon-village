@@ -14,31 +14,81 @@ const keys = {
     pressed: false
   }
 }
+
+function areInCollision(object1, object2) {
+  return (
+    object1.position.x + object1.width >= object2.position.x
+    && object1.position.x <= object2.position.x + object2.width
+    && object1.position.y <= object2.position.y + object2.height
+    && object1.position.y + object1.height >= object2.position.y
+  )
+}
+
 let lastPressedKey = ''
 
 function movePlayer(lastPressedKey) {
-  player.moving = false
+  let moving = true
   //player movement is implemented by changing the map position
   if(keys.up.pressed && lastPressedKey === 'up') {
-    player.moving = true
-    worldObjects.forEach(object => {
-      object.position.y += 3
+    collisionBlocks.forEach(block => {
+      if(areInCollision(player, {...block, position: {
+        x: block.position.x,
+        y: block.position.y + 3
+      }})) {
+        console.log('collision')
+        moving = false
+      }
     })
+    if(moving) {
+      worldObjects.forEach(object => {
+        object.position.y += 3
+      })
+    }
   } else if(keys.right.pressed  && lastPressedKey === 'right') {
-    player.moving = true
-    worldObjects.forEach(object => {
-      object.position.x -= 3
+    collisionBlocks.forEach(block => {
+      if(areInCollision(player, {...block, position: {
+        x: block.position.x - 3,
+        y: block.position.y
+      }})) {
+        console.log('collision')
+        moving = false
+      }
     })
+    if(moving) {
+      worldObjects.forEach(object => {
+        object.position.x -= 3
+      })
+    }
   } else if(keys.down.pressed  && lastPressedKey === 'down') {
-    player.moving = true
-    worldObjects.forEach(object => {
-      object.position.y -= 3
+    collisionBlocks.forEach(block => {
+      if(areInCollision(player, {...block, position: {
+        x: block.position.x,
+        y: block.position.y - 3
+      }})) {
+        console.log('collision')
+        moving = false
+      }
     })
+    if(moving) {
+      worldObjects.forEach(object => {
+        object.position.y -= 3
+      })
+    }
   } else if(keys.left.pressed  && lastPressedKey === 'left') {
-    player.moving = true
-    worldObjects.forEach(object => {
-      object.position.x += 3
+    collisionBlocks.forEach(block => {
+      if(areInCollision(player, {...block, position: {
+        x: block.position.x + 3,
+        y: block.position.y
+      }})) {
+        console.log('collision')
+        moving = false
+      }
     })
+    if(moving) {
+      worldObjects.forEach(object => {
+        object.position.x += 3
+      })
+    }
   }
 }
 
@@ -60,22 +110,22 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowUp':
       keys.up.pressed = true
       lastPressedKey = 'up'
-      playerImage.src = './assets/player-up.png'
+      player.image = playerImageUp
       break
     case 'ArrowRight':
       keys.right.pressed = true
       lastPressedKey = 'right'
-      playerImage.src = './assets/player-right.png'
+      player.image = playerImageRight
       break
     case 'ArrowDown':
       keys.down.pressed = true
       lastPressedKey = 'down'
-      playerImage.src = './assets/player-down.png'
+      player.image = playerImageDown
       break
     case 'ArrowLeft':
       keys.left.pressed = true
       lastPressedKey = 'left'
-      playerImage.src = './assets/player-left.png'
+      player.image = playerImageLeft
       break
   }
 })

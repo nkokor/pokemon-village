@@ -61,14 +61,20 @@ const map = new Sprite({
 })
 
 //creating player
-const playerImage = new Image()
-playerImage.src = './assets/player-down.png'
+const playerImageDown = new Image()
+playerImageDown.src = './assets/player-down.png'
+const playerImageLeft = new Image()
+playerImageLeft.src = './assets/player-left.png'
+const playerImageUp = new Image()
+playerImageUp.src = './assets/player-up.png'
+const playerImageRight = new Image()
+playerImageRight.src = './assets/player-right.png'
 const player = new Sprite({
   position: {
-    x: canvas.width / 2 - playerImage.width / 4,
-    y: canvas.height / 2 - playerImage.height / 2
+    x: canvas.width / 2 - playerImageDown.width / 4,
+    y: canvas.height / 2 - playerImageDown.height / 2
   },
-  image: playerImage,
+  image: playerImageDown,
   frames: {
     max: 4
   }
