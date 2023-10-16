@@ -19,7 +19,7 @@ const keys = {
 
 let lastPressedKey = ''
 
-function movePlayer(lastPressedKey) {
+function movePlayer() {
   //player movement is implemented by moving the world objects
   if(keys.up.pressed && lastPressedKey === 'up') {
     moveUp()
@@ -34,14 +34,8 @@ function movePlayer(lastPressedKey) {
 
 function animate() {
   window.requestAnimationFrame(animate)
-  map.draw()
-  collisionBlocks.forEach(block => {
-    block.draw()
-  })
-  player.draw()
-  //foreground rendering must be done after player rendering so foreground objects are always in front of the player
-  foreground.draw()
-  movePlayer(lastPressedKey)
+  setScene()
+  movePlayer()
 }
 
 //player direction change
