@@ -80,23 +80,19 @@ window.addEventListener('keyup', (event) => {
   switch(event.key) {
     case 'ArrowUp':
       keys.up.pressed = false
-      player.moving = false
-      pikachu.moving = false
+      stopMovement()
       break
     case 'ArrowRight':
       keys.right.pressed = false
-      player.moving = false
-      pikachu.moving = false
+      stopMovement()
       break
     case 'ArrowDown':
       keys.down.pressed = false
-      player.moving = false
-      pikachu.moving = false
+      stopMovement()
       break
     case 'ArrowLeft':
       keys.left.pressed = false
-      player.moving = false
-      pikachu.moving = false
+      stopMovement()
       break
   }
 })

@@ -20,6 +20,11 @@ function areInCollision(object1, object2) {
   )
 }
 
+function stopMovement() {
+  player.moving = false
+  pikachu.moving = false
+}
+
 //moves the scene up
 function moveUp(){
   player.moving = true
@@ -29,8 +34,7 @@ function moveUp(){
       x: block.position.x,
       y: block.position.y + playerSpeed
     }})) {
-      player.moving = false
-      pikachu.moving = false
+      stopMovement()
     }
   })
   if(player.moving) {
@@ -49,8 +53,7 @@ function moveRight() {
         x: block.position.x - playerSpeed,
         y: block.position.y
       }})) {
-        player.moving = false
-        pikachu.moving = false
+        stopMovement()
       }
     })
     if(player.moving) {
@@ -69,8 +72,7 @@ function moveDown() {
         x: block.position.x,
         y: block.position.y - playerSpeed
       }})) {
-        player.moving = false
-        pikachu.moving = false
+        stopMovement()
       }
     })
     if(player.moving) {
@@ -89,8 +91,7 @@ function moveLeft() {
         x: block.position.x + playerSpeed,
         y: block.position.y
       }})) {
-        player.moving = false
-        pikachu.moving = false
+        stopMovement()
       }
     })
     if(player.moving) {
