@@ -3,7 +3,7 @@ class Sprite {
     position,
     image,
     frames = {
-      max: 1
+      max: 1,
     }
   }) {
     this.position = position
@@ -77,6 +77,20 @@ const player = new Sprite({
   image: playerImageDown,
   frames: {
     max: 4
+  }
+})
+
+const pikachuImageDown = new Image()
+pikachuImageDown.src = './assets/pikachu-down.png'
+const pikachu = new Sprite({
+  position: {
+    x: 400,
+    y: 150
+  },
+  image: pikachuImageDown,
+  frames: {
+    max: 4,
+    value: 1
   }
 })
 

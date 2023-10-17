@@ -22,5 +22,9 @@ Game assets used to create the map were made by LimeZu on itch.io. You can find 
 
 Sprites used for the player were made by keith13024 on deviantart.com. You can find them here: [https://devianart.com/](https://keith13024/art/Ash-kalos-overworld-sprite-by-Keith13024-597851130)
 
-Pokemon sprites were made by pokemonanimalcrossinggirl on tumblr.com. You can find them here: [https://tumblr.com/](https://pokemonanimalcrossinggirl.tumblr.com/post/90577350536)
+Pokemon sprites used in the game are from various resources and creators. You can find them here: 
+
+[https://tumblr.com/](https://pokemonanimalcrossinggirl.tumblr.com/post/90577350536)
+
+[https://devianart.com/](https://www.deviantart.com/aniki0001/art/pikachu-sprite-651023915)
 
