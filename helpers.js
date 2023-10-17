@@ -23,12 +23,14 @@ function areInCollision(object1, object2) {
 //moves the scene up
 function moveUp(){
   player.moving = true
+  pikachu.moving = true
   collisionBlocks.forEach(block => {
     if(areInCollision(player, {...block, position: {
       x: block.position.x,
       y: block.position.y + playerSpeed
     }})) {
       player.moving = false
+      pikachu.moving = false
     }
   })
   if(player.moving) {
@@ -41,12 +43,14 @@ function moveUp(){
 //moves the scene to the right
 function moveRight() {
   player.moving = true
+  pikachu.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x - playerSpeed,
         y: block.position.y
       }})) {
         player.moving = false
+        pikachu.moving = false
       }
     })
     if(player.moving) {
@@ -59,12 +63,14 @@ function moveRight() {
 //moves the scene down
 function moveDown() {
   player.moving = true
+  pikachu.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x,
         y: block.position.y - playerSpeed
       }})) {
         player.moving = false
+        pikachu.moving = false
       }
     })
     if(player.moving) {
@@ -77,12 +83,14 @@ function moveDown() {
 //moves the scene to the left
 function moveLeft() {
   player.moving = true
+  pikachu.moving = true
     collisionBlocks.forEach(block => {
       if(areInCollision(player, {...block, position: {
         x: block.position.x + playerSpeed,
         y: block.position.y
       }})) {
         player.moving = false
+        pikachu.moving = false
       }
     })
     if(player.moving) {

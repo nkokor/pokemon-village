@@ -82,10 +82,16 @@ const player = new Sprite({
 
 const pikachuImageDown = new Image()
 pikachuImageDown.src = './assets/pikachu-down.png'
+const pikachuImageLeft = new Image()
+pikachuImageLeft.src = './assets/pikachu-left.png'
+const pikachuImageUp = new Image()
+pikachuImageUp.src = './assets/pikachu-up.png'
+const pikachuImageRight = new Image()
+pikachuImageRight.src = './assets/pikachu-right.png'
 const pikachu = new Sprite({
   position: {
-    x: 400,
-    y: 150
+    x: 520,
+    y: 285
   },
   image: pikachuImageDown,
   frames: {
