@@ -4,8 +4,8 @@ function setScene() {
   collisionBlocks.forEach(block => {
     block.draw()
   })
-  player.draw()
   pikachu.draw()
+  player.draw()
   //foreground rendering must be done after player rendering so foreground objects are always in front of the player
   foreground.draw()
 }
@@ -13,10 +13,10 @@ function setScene() {
 //detects if two objects are colliding
 function areInCollision(object1, object2) {
   return (
-    object1.position.x + object1.width >= object2.position.x
-    && object1.position.x <= object2.position.x + object2.width
-    && object1.position.y <= object2.position.y + object2.height
-    && object1.position.y + object1.height >= object2.position.y
+    object1.position.x + object1.width + 20 >= object2.position.x
+    && object1.position.x - 20 <= object2.position.x + object2.width
+    && object1.position.y - 25 <= object2.position.y + object2.height
+    && object1.position.y + object1.height + 25 >= object2.position.y
   )
 }
 
