@@ -107,6 +107,6 @@ const foreground = new Sprite({
   position: {
     x: offset.x,
     y: offset.y 
-  }, 
+  },
   image: foregroundMapImage
 })
