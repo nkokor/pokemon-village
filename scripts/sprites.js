@@ -110,3 +110,4 @@ const foreground = new Sprite({
   },
   image: foregroundMapImage
 })
+

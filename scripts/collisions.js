@@ -8,7 +8,7 @@ class CollisionBlock {
     this.height = CollisionBlock.dimension
   }
   draw() {
-    context.fillStyle = 'rgba(255, 0, 0, 0)'
+    context.fillStyle = 'rgba(255, 0, 0, 1)'
     context.fillRect(this.position.x, this.position.y, this.width, this.height)
   }
 }

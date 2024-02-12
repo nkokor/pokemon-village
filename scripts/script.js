@@ -1,6 +1,7 @@
 const playerSpeed = 3
 
-const worldObjects = [map, ...collisionBlocks, foreground]
+const pokemons = [pokemon1, pokemon2, pokemon3, pokemon4, pokemon5]
+const worldObjects = [map, ...collisionBlocks, foreground, ...pokemons]
 
 const keys = {
   up: {
