@@ -7,6 +7,9 @@ function setScene() {
   pokemons.forEach(pokemon => {
     pokemon.draw()
   })
+  battleFields.forEach(field => {
+    field.draw()
+  })
   pikachu.draw()
   player.draw()
   //foreground rendering must be done after player rendering so foreground objects are always in front of the player

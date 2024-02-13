@@ -1,7 +1,12 @@
 const playerSpeed = 3
 
+const battleFields = []
+ levels.forEach(level => {
+  battleFields.push(level.battleField)
+ })
+
 const pokemons = [pokemon1, pokemon2, pokemon3, pokemon4, pokemon5]
-const worldObjects = [map, ...collisionBlocks, foreground, ...pokemons]
+const worldObjects = [map, ...collisionBlocks, foreground, ...pokemons, ...battleFields]
 
 const keys = {
   up: {

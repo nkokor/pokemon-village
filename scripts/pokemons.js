@@ -43,7 +43,7 @@ pokemon5Image.src = './assets/pokemon5.png'
 const pokemon5 = new Sprite({
   position: {
     x: -2570,
-    y: 240 
+    y: 190 
   }, 
   image: pokemon5Image, 
 })
